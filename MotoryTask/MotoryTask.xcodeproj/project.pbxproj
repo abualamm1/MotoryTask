@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A0FE2D442EB86E2600AA2B0A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A0FE2D432EB86E2600AA2B0A /* RxSwift */; };
+		A0FE2D462EB86E2E00AA2B0A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A0FE2D452EB86E2E00AA2B0A /* Kingfisher */; };
+		A0FE2D482EB86E3600AA2B0A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A0FE2D472EB86E3600AA2B0A /* RxCocoa */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A0FE2D232EB8650F00AA2B0A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +71,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0FE2D482EB86E3600AA2B0A /* RxCocoa in Frameworks */,
+				A0FE2D462EB86E2E00AA2B0A /* Kingfisher in Frameworks */,
+				A0FE2D442EB86E2600AA2B0A /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +100,7 @@
 				A0FE2D0E2EB8650D00AA2B0A /* MotoryTask */,
 				A0FE2D252EB8650F00AA2B0A /* MotoryTaskTests */,
 				A0FE2D2F2EB8650F00AA2B0A /* MotoryTaskUITests */,
+				A0FE2D422EB86E2600AA2B0A /* Frameworks */,
 				A0FE2D0D2EB8650D00AA2B0A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +113,13 @@
 				A0FE2D2C2EB8650F00AA2B0A /* MotoryTaskUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A0FE2D422EB86E2600AA2B0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +142,9 @@
 			);
 			name = MotoryTask;
 			packageProductDependencies = (
+				A0FE2D432EB86E2600AA2B0A /* RxSwift */,
+				A0FE2D452EB86E2E00AA2B0A /* Kingfisher */,
+				A0FE2D472EB86E3600AA2B0A /* RxCocoa */,
 			);
 			productName = MotoryTask;
 			productReference = A0FE2D0C2EB8650D00AA2B0A /* MotoryTask.app */;
@@ -208,6 +228,10 @@
 			);
 			mainGroup = A0FE2D032EB8650D00AA2B0A;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A0FE2D402EB86C0000AA2B0A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				A0FE2D412EB86C1300AA2B0A /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A0FE2D0D2EB8650D00AA2B0A /* Products */;
 			projectDirPath = "";
@@ -563,6 +587,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A0FE2D402EB86C0000AA2B0A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.6.1;
+			};
+		};
+		A0FE2D412EB86C1300AA2B0A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A0FE2D432EB86E2600AA2B0A /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0FE2D412EB86C1300AA2B0A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		A0FE2D452EB86E2E00AA2B0A /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0FE2D402EB86C0000AA2B0A /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		A0FE2D472EB86E3600AA2B0A /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0FE2D412EB86C1300AA2B0A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A0FE2D042EB8650D00AA2B0A /* Project object */;
 }

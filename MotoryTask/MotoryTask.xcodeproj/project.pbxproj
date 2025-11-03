@@ -309,6 +309,7 @@
 		A0FE2D362EB8650F00AA2B0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ACCESS_KEY = XeGGmPn6SwPZa3xEydE7Td_i0aKNCtuACIP1pKNW67I;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -336,6 +337,7 @@
 		A0FE2D372EB8650F00AA2B0A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ACCESS_KEY = XeGGmPn6SwPZa3xEydE7Td_i0aKNCtuACIP1pKNW67I;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;

@@ -7,6 +7,7 @@
 
 
 import Foundation
+import UIKit
 
 final class PhotoModel: Codable {
     var id: String?
@@ -14,7 +15,8 @@ final class PhotoModel: Codable {
     var likedByUser: Bool = false
     var urls: URLsModel?
     var user: UserModel?
-
+    var image: UIImage?
+    
     enum CodingKeys: String, CodingKey {
         case id
         case altDescription = "alt_description"
@@ -22,12 +24,13 @@ final class PhotoModel: Codable {
         case urls, user
     }
     
-    init(id: String? = nil, altDescription: String? = nil, likedByUser: Bool, urls: URLsModel? = nil, user: UserModel? = nil) {
+    init(id: String? = nil, altDescription: String? = nil, likedByUser: Bool, urls: URLsModel? = nil, user: UserModel? = nil, image: UIImage? = nil) {
         self.id = id
         self.altDescription = altDescription
         self.likedByUser = likedByUser
         self.urls = urls
         self.user = user
+        self.image = image
     }
 }
 

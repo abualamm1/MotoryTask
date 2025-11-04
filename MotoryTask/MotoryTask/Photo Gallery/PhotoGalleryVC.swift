@@ -54,6 +54,10 @@ class PhotoGalleryVC: BaseViewController {
                 if let cell = cell as? PhotoThumbCVCell  {
                     let vm = PhotoThumbCVCellVM(model: model)
                     cell.configure(with: vm)
+                    
+                    cell.viewModel.showPhotoTapped
+                        .bind(to: self.viewModel.showZoomVC)
+                        .disposed(by: cell.disposeBag)
                 }
             }
             .disposed(by: disposeBag)
@@ -74,6 +78,14 @@ class PhotoGalleryVC: BaseViewController {
                     self.viewModel.searchPhotos(query: query)
                 }
             }).disposed(by: disposeBag)
+        
+        viewModel.showZoomVC
+            .subscribe(onNext: { [weak self] image in
+                guard let self = self else { return }
+                
+                self.navigatToZoom(with: image)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func setupCollectionViewLayout() {
@@ -90,5 +102,14 @@ class PhotoGalleryVC: BaseViewController {
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         layout.scrollDirection = .vertical
         photosCollectionView.setCollectionViewLayout(layout, animated: false)
+    }
+    
+    
+    private func navigatToZoom(with image: UIImage ) {
+        
+        let zoomVC = ImageZoomVC()
+        zoomVC.image = image
+        self.present(zoomVC, animated: true)
+        
     }
 }

@@ -13,7 +13,8 @@ import RxCocoa
 class PhotoThumbCVCell: UICollectionViewCell {
 
     @IBOutlet weak var photoImage: UIImageView!
-
+    @IBOutlet weak var showPhotoButton: UIButton!
+    
     @IBOutlet weak var likedImage: UIImageView!
     @IBOutlet weak var likedButton: UIButton!
 
@@ -69,10 +70,12 @@ class PhotoThumbCVCell: UICollectionViewCell {
                     with: url,
                     placeholder: nil,
                     options: [.cacheOriginalImage]) { [weak self] _ in
-                    guard let self = self else { return }
-                    self.activityIndicator.stopAnimating()
-                    self.activityIndicator.isHidden = true
-                }
+                        guard let self = self else { return }
+                        self.activityIndicator.stopAnimating()
+                        self.activityIndicator.isHidden = true
+                        let imge = self.photoImage.image ?? UIImage()
+                        self.viewModel.model.value.image = imge
+                    }
             })
             .disposed(by: disposeBag)
 
@@ -80,6 +83,12 @@ class PhotoThumbCVCell: UICollectionViewCell {
             .map({ $0.likedByUser ? UIImage(named: "red_heart_icon") : UIImage(named: "white_heart_icon") })
             .asDriver(onErrorJustReturn: UIImage())
             .drive(likedImage.rx.image)
+            .disposed(by: disposeBag)
+       
+        showPhotoButton.rx.tap
+            .withLatestFrom(viewModel.model)
+            .map {$0.image ?? UIImage()}
+            .bind(to: viewModel.showPhotoTapped)
             .disposed(by: disposeBag)
     }
 }

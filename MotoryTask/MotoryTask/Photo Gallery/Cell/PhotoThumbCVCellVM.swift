@@ -9,14 +9,15 @@
 import RxSwift
 import RxCocoa
 import Foundation
+import UIKit
 
 class PhotoThumbCVCellVM {
     var model: BehaviorRelay<PhotoModel>
-    var likedButtonTap: PublishSubject<Void>
+    var likedButtonTap =  PublishSubject<Void>()
+    var showPhotoTapped =  PublishSubject<UIImage>()
     
     init(model: PhotoModel) {
         
         self.model = BehaviorRelay(value: model)
-        likedButtonTap = PublishSubject()
     }
 }

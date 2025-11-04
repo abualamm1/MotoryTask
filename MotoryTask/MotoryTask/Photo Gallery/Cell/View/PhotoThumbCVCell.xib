@@ -33,6 +33,10 @@
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eMG-jt-keX">
                                                         <rect key="frame" x="0.0" y="0.0" width="294" height="173"/>
                                                     </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxW-aE-EFC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="173"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhY-CK-Beo" customClass="CustomUIView" customModule="MotoryTask" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="6" width="26" height="26"/>
                                                         <subviews>
@@ -78,12 +82,16 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="AxW-aE-EFC" secondAttribute="trailing" id="0vT-Ae-y0C"/>
+                                                    <constraint firstAttribute="bottom" secondItem="AxW-aE-EFC" secondAttribute="bottom" id="2u4-IC-nqJ"/>
                                                     <constraint firstItem="8Uu-hA-Znr" firstAttribute="centerX" secondItem="WAx-6o-SUa" secondAttribute="centerX" id="5QS-9c-0n5"/>
                                                     <constraint firstItem="uhY-CK-Beo" firstAttribute="top" secondItem="WAx-6o-SUa" secondAttribute="top" constant="6" id="M78-KU-mRD"/>
                                                     <constraint firstItem="uhY-CK-Beo" firstAttribute="leading" secondItem="WAx-6o-SUa" secondAttribute="leading" constant="10" id="SZQ-Qd-DCP"/>
+                                                    <constraint firstItem="AxW-aE-EFC" firstAttribute="leading" secondItem="WAx-6o-SUa" secondAttribute="leading" id="WLD-sL-6Lx"/>
                                                     <constraint firstAttribute="trailing" secondItem="eMG-jt-keX" secondAttribute="trailing" id="dfg-U0-fcm"/>
                                                     <constraint firstAttribute="bottom" secondItem="eMG-jt-keX" secondAttribute="bottom" id="eiq-vg-D5a"/>
                                                     <constraint firstItem="eMG-jt-keX" firstAttribute="leading" secondItem="WAx-6o-SUa" secondAttribute="leading" id="lb8-qQ-qxX"/>
+                                                    <constraint firstItem="AxW-aE-EFC" firstAttribute="top" secondItem="WAx-6o-SUa" secondAttribute="top" id="n7k-zd-D3l"/>
                                                     <constraint firstItem="eMG-jt-keX" firstAttribute="top" secondItem="WAx-6o-SUa" secondAttribute="top" id="qYD-ui-Nma"/>
                                                     <constraint firstItem="8Uu-hA-Znr" firstAttribute="centerY" secondItem="WAx-6o-SUa" secondAttribute="centerY" id="tZc-yM-ilu"/>
                                                     <constraint firstAttribute="height" constant="173" id="uWN-Aw-Jqw"/>
@@ -136,6 +144,7 @@
                 <outlet property="likedImage" destination="0MH-KD-2iS" id="PKb-dv-Yz3"/>
                 <outlet property="nameLabel" destination="4Dx-mR-KDb" id="v4m-uu-mbb"/>
                 <outlet property="photoImage" destination="eMG-jt-keX" id="U5D-ae-5HC"/>
+                <outlet property="showPhotoButton" destination="AxW-aE-EFC" id="abP-qj-uDH"/>
             </connections>
             <point key="canvasLocation" x="311" y="96"/>
         </collectionViewCell>

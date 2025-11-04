@@ -13,6 +13,7 @@ import RxSwift
 struct APIError: Error, Equatable {
     let statusCode: Int?
     let message: String
+    var errorDescription: String? { message }
 }
 
 protocol NetworkClientType {
@@ -33,8 +34,6 @@ final class NetworkClient: NetworkClientType {
         self.accessKey = accessKey
         self.session = session
         self.decoder = decoder
-        self.decoder.keyDecodingStrategy = .convertFromSnakeCase
-        self.decoder.dateDecodingStrategy = .iso8601
     }
 
     func request<T: Decodable>(_ endpoint: APIEndpoint) -> Single<T> {
@@ -61,6 +60,7 @@ final class NetworkClient: NetworkClientType {
             request.setValue("application/json", forHTTPHeaderField: "Accept")
 
             let task = self.session.dataTask(with: request) { data, response, error in
+                
                 if let error = error {
                     single(.failure(APIError(statusCode: nil, message: error.localizedDescription)))
                     return
@@ -69,8 +69,19 @@ final class NetworkClient: NetworkClientType {
                     single(.failure(APIError(statusCode: nil, message: "No HTTP response")))
                     return
                 }
+                
+                
+                if let data = data {
+                    let bodyString = String(data: data, encoding: .utf8) ?? "<non-UTF8 data>"
+                    print("""
+                    Body:
+                    \(bodyString)
+                    """)
+                }
+
                 guard (200...299).contains(http.statusCode), let data = data else {
                     let body = data.flatMap { String(data: $0, encoding: .utf8) } ?? ""
+                    print("HTTP \(http.statusCode) \(url.absoluteString)\n\(body)")
                     single(.failure(APIError(statusCode: http.statusCode, message: body.isEmpty ? "HTTP \(http.statusCode)" : body)))
                     return
                 }

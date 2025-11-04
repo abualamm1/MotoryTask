@@ -11,10 +11,10 @@ import RxCocoa
 import Foundation
 
 class PhotoThumbCVCellVM {
-    var model: BehaviorRelay<photoModel>
+    var model: BehaviorRelay<PhotoModel>
     var likedButtonTap: PublishSubject<Void>
     
-    init(model: photoModel) {
+    init(model: PhotoModel) {
         
         self.model = BehaviorRelay(value: model)
         likedButtonTap = PublishSubject()

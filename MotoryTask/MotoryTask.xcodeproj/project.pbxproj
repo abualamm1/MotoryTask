@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0A97C8B2EBA111300891710 /* netfox in Frameworks */ = {isa = PBXBuildFile; productRef = A0A97C8A2EBA111300891710 /* netfox */; };
 		A0FE2D442EB86E2600AA2B0A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A0FE2D432EB86E2600AA2B0A /* RxSwift */; };
 		A0FE2D462EB86E2E00AA2B0A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A0FE2D452EB86E2E00AA2B0A /* Kingfisher */; };
 		A0FE2D482EB86E3600AA2B0A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A0FE2D472EB86E3600AA2B0A /* RxCocoa */; };
@@ -73,6 +74,7 @@
 			files = (
 				A0FE2D482EB86E3600AA2B0A /* RxCocoa in Frameworks */,
 				A0FE2D462EB86E2E00AA2B0A /* Kingfisher in Frameworks */,
+				A0A97C8B2EBA111300891710 /* netfox in Frameworks */,
 				A0FE2D442EB86E2600AA2B0A /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,6 +147,7 @@
 				A0FE2D432EB86E2600AA2B0A /* RxSwift */,
 				A0FE2D452EB86E2E00AA2B0A /* Kingfisher */,
 				A0FE2D472EB86E3600AA2B0A /* RxCocoa */,
+				A0A97C8A2EBA111300891710 /* netfox */,
 			);
 			productName = MotoryTask;
 			productReference = A0FE2D0C2EB8650D00AA2B0A /* MotoryTask.app */;
@@ -231,6 +234,7 @@
 			packageReferences = (
 				A0FE2D402EB86C0000AA2B0A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				A0FE2D412EB86C1300AA2B0A /* XCRemoteSwiftPackageReference "RxSwift" */,
+				A03C22C72EBA10D600B8BBBC /* XCRemoteSwiftPackageReference "netfox" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A0FE2D0D2EB8650D00AA2B0A /* Products */;
@@ -595,6 +599,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A03C22C72EBA10D600B8BBBC /* XCRemoteSwiftPackageReference "netfox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kasketis/netfox";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.21.0;
+			};
+		};
 		A0FE2D402EB86C0000AA2B0A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -614,6 +626,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A0A97C8A2EBA111300891710 /* netfox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A03C22C72EBA10D600B8BBBC /* XCRemoteSwiftPackageReference "netfox" */;
+			productName = netfox;
+		};
 		A0FE2D432EB86E2600AA2B0A /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A0FE2D412EB86C1300AA2B0A /* XCRemoteSwiftPackageReference "RxSwift" */;

@@ -1,22 +1,22 @@
 //
-//  ListPhotosUseCase.swift
+//  SearchPhotosUseCase.swift
 //  MotoryTask
 //
 //  Created by Ammar Al-amm on 04/11/2025.
 //
 
-import Foundation
 import RxSwift
+import Foundation
 
-struct ListPhotosUseCase {
+struct SearchPhotosUseCase {
     let repo: PhotosRepositoryType
 
-    func execute() -> Observable<ResponseEvent<[PhotoModel]>> {
-        return repo.listPhotos()
+    func execute(query: String) -> Observable<ResponseEvent<SearchPhotosResponse>> {
+        return repo.searchPhotos(query: query)
             .asObservable()
-            .flatMap { photos -> Observable<ResponseEvent<[PhotoModel]>> in
+            .flatMap { response -> Observable<ResponseEvent<SearchPhotosResponse>> in
                 return Observable.create { observer in
-                    observer.onNext(.next(photos))
+                    observer.onNext(.next(response))
                     observer.onNext(.completed)
                     observer.onCompleted()
                     return Disposables.create()

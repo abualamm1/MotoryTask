@@ -9,8 +9,8 @@
 import Foundation
 
 enum UnsplashEndpoint: APIEndpoint {
-    case listPhotos(page: Int, perPage: Int)
-    case searchPhotos(query: String, page: Int, perPage: Int)
+    case listPhotos
+    case searchPhotos(query: String)
 
     var path: String {
         switch self {
@@ -28,16 +28,12 @@ enum UnsplashEndpoint: APIEndpoint {
 
     var queryItems: [URLQueryItem] {
         switch self {
-        case let .listPhotos(page, perPage):
-            return [
-                URLQueryItem(name: "page", value: String(page)),
-                URLQueryItem(name: "per_page", value: String(perPage))
-            ]
-        case let .searchPhotos(query, page, perPage):
+        case .listPhotos:
+            return [URLQueryItem(name: "per_page", value: "\(20)"),]
+        case .searchPhotos(let query):
             return [
                 URLQueryItem(name: "query", value: query),
-                URLQueryItem(name: "page", value: String(page)),
-                URLQueryItem(name: "per_page", value: String(perPage))
+                URLQueryItem(name: "per_page", value: "\(20)"),
             ]
         }
     }

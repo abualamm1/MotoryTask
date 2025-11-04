@@ -8,58 +8,42 @@
 
 import Foundation
 
-class photoModel: Codable {
-    var id: Int?
-    var description: String?
-    var likedByUser: Bool?
+final class PhotoModel: Codable {
+    var id: String?
+    var altDescription: String?
+    var likedByUser: Bool = false
     var urls: URLsModel?
     var user: UserModel?
-    
-    init(id: Int? = nil, description: String? = nil, likedByUser: Bool? = nil, urls: URLsModel? = nil) {
-        self.id = id
-        self.description = description
-        self.urls = urls
-    }
-    
+
     enum CodingKeys: String, CodingKey {
         case id
-        case description
-        case urls = "urls"
+        case altDescription = "alt_description"
         case likedByUser = "liked_by_user"
+        case urls, user
+    }
+    
+    init(id: String? = nil, altDescription: String? = nil, likedByUser: Bool, urls: URLsModel? = nil, user: UserModel? = nil) {
+        self.id = id
+        self.altDescription = altDescription
+        self.likedByUser = likedByUser
+        self.urls = urls
+        self.user = user
     }
 }
 
-class URLsModel: Codable {
-    var regular: String?
-    
-    init(regular: String? = nil) {
-        self.regular = regular
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case regular
-    }
+final class URLsModel: Codable {
+    var full: String?
 }
 
-
-class UserModel: Codable {
-    var name: String?
-    
-    init(name: String? = nil) {
-        self.name = name
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case name
-    }
+final class UserModel: Codable {
+    var username: String?
 }
-
 
 
 class SearchPhotosResponse: Codable {
-    let results: [photoModel]?
+    let results: [PhotoModel]?
     
-    init(results: [photoModel]? = nil) {
+    init(results: [PhotoModel]? = nil) {
         self.results = results
     }
     

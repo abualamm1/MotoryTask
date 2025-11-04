@@ -9,9 +9,15 @@
 import RxSwift
 import Foundation
 
+enum ResponseEvent<T> {
+    case next(T)
+    case error(Error)
+    case completed
+}
+
 protocol PhotosRepositoryType {
-    func listPhotos(page: Int, perPage: Int) -> Single<[photoModel]>
-    func searchPhotos(query: String, page: Int, perPage: Int) -> Single<SearchPhotosResponse>
+    func listPhotos() -> Single<[PhotoModel]>
+    func searchPhotos(query: String) -> Single<SearchPhotosResponse>
 }
 
 final class PhotosRepository: PhotosRepositoryType {
@@ -20,11 +26,11 @@ final class PhotosRepository: PhotosRepositoryType {
         self.client = client
     }
 
-    func listPhotos(page: Int, perPage: Int) -> Single<[photoModel]> {
-        client.request(UnsplashEndpoint.listPhotos(page: page, perPage: perPage))
+    func listPhotos() -> Single<[PhotoModel]> {
+        client.request(UnsplashEndpoint.listPhotos)
     }
 
-    func searchPhotos(query: String, page: Int, perPage: Int) -> Single<SearchPhotosResponse> {
-        client.request(UnsplashEndpoint.searchPhotos(query: query, page: page, perPage: perPage))
+    func searchPhotos(query: String) -> Single<SearchPhotosResponse> {
+        client.request(UnsplashEndpoint.searchPhotos(query: query))
     }
 }

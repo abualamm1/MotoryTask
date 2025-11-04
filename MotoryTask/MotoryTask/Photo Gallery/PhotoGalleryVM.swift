@@ -7,6 +7,8 @@
 
 import RxSwift
 import RxCocoa
+import Foundation
+import UIKit
 
 final class PhotoGalleryVM {
 
@@ -15,6 +17,7 @@ final class PhotoGalleryVM {
     let isLoading = BehaviorRelay<Bool>(value: false)
     let error = PublishRelay<String>()
     let searchObs = BehaviorSubject<String>(value: "")
+    let showZoomVC = PublishSubject<UIImage>()
 
     // MARK: Private
     private let listUseCase: ListPhotosUseCase

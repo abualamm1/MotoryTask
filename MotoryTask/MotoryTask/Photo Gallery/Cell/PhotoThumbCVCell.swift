@@ -47,13 +47,13 @@ class PhotoThumbCVCell: UICollectionViewCell {
 
         viewModel.model
             .map({ $0.user?.username ?? "" })
-            .asDriver(onErrorJustReturn: "")
+            .asDriver(onErrorDriveWith: .empty())
             .drive(nameLabel.rx.text)
             .disposed(by: disposeBag)
 
         viewModel.model
             .map { $0.altDescription ?? "" }
-            .asDriver(onErrorJustReturn: "")
+            .asDriver(onErrorDriveWith: .empty())
             .drive(descLabel.rx.text)
             .disposed(by: disposeBag)
 
@@ -81,7 +81,7 @@ class PhotoThumbCVCell: UICollectionViewCell {
 
         viewModel.model
             .map({ $0.likedByUser ? UIImage(named: "red_heart_icon") : UIImage(named: "white_heart_icon") })
-            .asDriver(onErrorJustReturn: UIImage())
+            .asDriver(onErrorDriveWith: .empty())
             .drive(likedImage.rx.image)
             .disposed(by: disposeBag)
        

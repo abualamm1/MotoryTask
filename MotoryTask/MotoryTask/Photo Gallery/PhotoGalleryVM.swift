@@ -18,6 +18,7 @@ final class PhotoGalleryVM {
     let error = PublishRelay<String>()
     let searchObs = BehaviorSubject<String>(value: "")
     let showZoomVC = PublishSubject<UIImage>()
+    let categoriesObs: BehaviorRelay<[ChipsModel]>
 
     // MARK: Private
     private let listUseCase: ListPhotosUseCase
@@ -29,6 +30,14 @@ final class PhotoGalleryVM {
         let repo = PhotosRepository(client: client)
         self.listUseCase = ListPhotosUseCase(repo: repo)
         self.searchUseCase = SearchPhotosUseCase(repo: repo)
+        
+        let chips: [ChipsModel] = [
+            .init(title: "Images", isSelected: true, code: "images"),
+            .init(title: "My Favourite", isSelected: false, code: "my_favourite"),
+        ]
+        
+        categoriesObs = .init(value: chips)
+        
     }
 
     // MARK: - Public API

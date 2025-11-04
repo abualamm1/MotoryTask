@@ -35,20 +35,20 @@ class ChipsCVCell: UICollectionViewCell {
         
         viewModel.model
             .map{$0.title}
-            .asDriver(onErrorJustReturn: "")
+            .asDriver(onErrorDriveWith: .empty())
             .drive(titleLabel.rx.text)
             .disposed(by: disposeBag)
 
         viewModel.model
             .map { $0.isSelected ? .ghostWhiteColor : .whiteColor }
-            .asDriver(onErrorJustReturn: UIColor())
+            .asDriver(onErrorDriveWith: .empty())
             .drive(titleLabel.rx.textColor)
             .disposed(by: disposeBag)
         
         viewModel.model
             .map { $0.isSelected ? .primaryColor : .secondaryColor }
-            .asDriver(onErrorJustReturn: UIColor())
-            .drive(titleLabel.rx.textColor)
+            .asDriver(onErrorDriveWith: .empty())
+            .drive(baseView.rx.backgroundColor)
             .disposed(by: disposeBag)
     }
 }

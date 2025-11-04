@@ -53,3 +53,18 @@ class UserModel: Codable {
         case name
     }
 }
+
+
+
+class SearchPhotosResponse: Codable {
+    let results: [photoModel]?
+    
+    init(results: [photoModel]? = nil) {
+        self.results = results
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case results
+    }
+}
+

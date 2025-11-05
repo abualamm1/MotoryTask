@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -29,11 +30,11 @@
                         </subviews>
                         <color key="backgroundColor" name="SecondaryColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="q9N-GK-vUH" secondAttribute="trailing" constant="8" id="4gU-Gk-H7I"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="q9N-GK-vUH" secondAttribute="trailing" constant="18" id="4gU-Gk-H7I"/>
                             <constraint firstAttribute="bottom" secondItem="q9N-GK-vUH" secondAttribute="bottom" constant="12" id="4jm-5f-g86"/>
                             <constraint firstItem="q9N-GK-vUH" firstAttribute="centerY" secondItem="Sv4-cE-jRb" secondAttribute="centerY" id="9vr-yD-1De"/>
                             <constraint firstItem="q9N-GK-vUH" firstAttribute="centerX" secondItem="Sv4-cE-jRb" secondAttribute="centerX" id="aMI-2S-3LM"/>
-                            <constraint firstItem="q9N-GK-vUH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Sv4-cE-jRb" secondAttribute="leading" constant="8" id="xLW-v0-pIY"/>
+                            <constraint firstItem="q9N-GK-vUH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Sv4-cE-jRb" secondAttribute="leading" constant="18" id="xLW-v0-pIY"/>
                             <constraint firstItem="q9N-GK-vUH" firstAttribute="top" secondItem="Sv4-cE-jRb" secondAttribute="top" constant="12" id="zED-CC-dIC"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>

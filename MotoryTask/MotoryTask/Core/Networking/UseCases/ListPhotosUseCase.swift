@@ -8,9 +8,11 @@
 import Foundation
 import RxSwift
 
+/// Use case for fetching a list of photos.
 struct ListPhotosUseCase {
     let repo: PhotosRepositoryType
 
+    /// Executes the photo fetch and emits response events.
     func execute() -> Observable<ResponseEvent<[PhotoModel]>> {
         return repo.listPhotos()
             .asObservable()

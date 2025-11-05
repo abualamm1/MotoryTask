@@ -24,12 +24,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    /// Configures Kingfisher image cache settings:
+    /// - Limits memory cache to 200 MB and expires items after 10 minutes.
+    /// - Limits disk cache to 1 GB and expires items after 7 days.
+
     private func configureKingfisherCache() {
         let cache = ImageCache.default
-        cache.memoryStorage.config.totalCostLimit = 200 * 1024 * 1024
-        cache.memoryStorage.config.expiration = .seconds(600)
-        cache.diskStorage.config.sizeLimit = 1024 * 1024 * 1024
-        cache.diskStorage.config.expiration = .days(7)
+
+        // Size constants
+        let memoryLimitMB = 200
+        let diskLimitGB = 1
+        let diskExpirationDays = 7
+        let bytesPerMB = 1024 * 1024
+        let bytesPerGB = 1024 * 1024 * 1024
+
+        // Memory cache
+        cache.memoryStorage.config.totalCostLimit = memoryLimitMB * bytesPerMB
+        cache.memoryStorage.config.expiration = .seconds(600) // memoryExpirationSeconds
+
+        // Disk cache
+        cache.diskStorage.config.sizeLimit = UInt(diskLimitGB * bytesPerGB)
+        cache.diskStorage.config.expiration = .days(diskExpirationDays)
     }
 
     // MARK: UISceneSession Lifecycle

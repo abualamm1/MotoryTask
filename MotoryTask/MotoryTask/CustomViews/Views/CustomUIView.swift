@@ -16,9 +16,8 @@ import UIKit
 /// This view also supports an option to make itself fully rounded
 /// (useful for creating circular views such as avatars or buttons).
 
-@IBDesignable class CustomUIView: UIView {
-
-    // MARK: - Private Properties
+@IBDesignable
+class CustomUIView: UIView {
 
     private var isFullRounded = false
 

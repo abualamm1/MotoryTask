@@ -8,9 +8,10 @@
 
 import UIKit
 
+/// Displays a zoomable image with a close button overlay.
 class ImageZoomVC: BaseViewController, UIScrollViewDelegate {
         
-    var image: UIImage?  // <-- this will be set from another view controller
+    var image: UIImage? // Set by the presenting view controller
     
     private let scrollView = UIScrollView()
     private let imageView = UIImageView()
@@ -30,10 +31,11 @@ class ImageZoomVC: BaseViewController, UIScrollViewDelegate {
         setupUI()
     }
     
+    /// Configures scroll view, image view, and close button.
     func setupUI() {
         view.backgroundColor = .black.withAlphaComponent(0.3)
         
-        // Configure ScrollView
+        // ScrollView setup
         scrollView.frame = view.bounds
         scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         scrollView.delegate = self
@@ -41,7 +43,7 @@ class ImageZoomVC: BaseViewController, UIScrollViewDelegate {
         scrollView.maximumZoomScale = 4.0
         view.addSubview(scrollView)
         
-        // Configure ImageView
+        // ImageView setup
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
         imageView.frame = scrollView.bounds
@@ -49,11 +51,11 @@ class ImageZoomVC: BaseViewController, UIScrollViewDelegate {
 
         centerImage()
         
-        // Add Close Button
+        // Close button setup
         view.addSubview(closeButton)
         closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         
-        // Constraints for button at top-right
+        // Button constraints (top-right corner)
         NSLayoutConstraint.activate([
             closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
@@ -63,6 +65,7 @@ class ImageZoomVC: BaseViewController, UIScrollViewDelegate {
         closeButton.imageView?.contentMode = .scaleAspectFit
     }
     
+    /// Centers the image within the scroll view.
     private func centerImage() {
         let scrollViewSize = scrollView.bounds.size
         let imageSize = imageView.frame.size
@@ -70,10 +73,16 @@ class ImageZoomVC: BaseViewController, UIScrollViewDelegate {
         let horizontalInset = imageSize.width < scrollViewSize.width ? (scrollViewSize.width - imageSize.width) / 2 : 0
         let verticalInset = imageSize.height < scrollViewSize.height ? (scrollViewSize.height - imageSize.height) / 2 : 0
 
-        scrollView.contentInset = UIEdgeInsets(top: verticalInset, left: horizontalInset, bottom: verticalInset, right: horizontalInset)
+        scrollView.contentInset = UIEdgeInsets(
+            top: verticalInset,
+            left: horizontalInset,
+            bottom: verticalInset,
+            right: horizontalInset
+        )
     }
 
-    // Required for zooming
+    // MARK: - UIScrollViewDelegate
+
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
     }
@@ -83,8 +92,8 @@ class ImageZoomVC: BaseViewController, UIScrollViewDelegate {
         centerImage()
     }
     
-    // Close button action
+    /// Dismisses the zoom view.
     @objc private func closeButtonTapped() {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
 }

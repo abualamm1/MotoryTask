@@ -84,6 +84,12 @@
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="16"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="SecondaryColor"/>
+                                                            </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
@@ -135,23 +141,22 @@
                                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
+                                                                <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" style="large" id="t8d-pj-Cfi">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="353" height="440.66666666666669"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="40" id="E3H-OZ-11O"/>
+                                                                        <constraint firstAttribute="height" constant="40" id="wLM-a8-geX"/>
+                                                                    </constraints>
+                                                                    <color key="color" name="PrimaryColor"/>
+                                                                </activityIndicatorView>
                                                                 <cells/>
                                                             </collectionView>
-                                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="t8d-pj-Cfi">
-                                                                <rect key="frame" x="156.66666666666666" y="200.33333333333331" width="40" height="40"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="40" id="E3H-OZ-11O"/>
-                                                                    <constraint firstAttribute="height" constant="40" id="wLM-a8-geX"/>
-                                                                </constraints>
-                                                                <color key="color" name="PrimaryColor"/>
-                                                            </activityIndicatorView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="ZDb-hw-sVT" firstAttribute="top" secondItem="SEb-Mj-mAp" secondAttribute="top" id="2nM-YY-AHK"/>
                                                             <constraint firstAttribute="trailing" secondItem="ZDb-hw-sVT" secondAttribute="trailing" id="JJC-0K-aQT"/>
-                                                            <constraint firstItem="t8d-pj-Cfi" firstAttribute="centerY" secondItem="SEb-Mj-mAp" secondAttribute="centerY" id="YsA-ZA-cRM"/>
-                                                            <constraint firstItem="t8d-pj-Cfi" firstAttribute="centerX" secondItem="SEb-Mj-mAp" secondAttribute="centerX" id="duG-A2-81N"/>
                                                             <constraint firstAttribute="bottom" secondItem="ZDb-hw-sVT" secondAttribute="bottom" id="fqh-4C-iwa"/>
                                                             <constraint firstItem="ZDb-hw-sVT" firstAttribute="leading" secondItem="SEb-Mj-mAp" secondAttribute="leading" id="r79-w0-iki"/>
                                                         </constraints>

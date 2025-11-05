@@ -12,6 +12,9 @@ import Foundation
 import Foundation
 import UIKit
 
+
+// Manual color accessor — it’s fine for small projects or a handful of colors
+/// Centralized color palette loaded from asset catalog.
 extension UIColor {
     @nonobjc class var ashGreyColor: UIColor {
         return UIColor(named: "AshGreyColor")!

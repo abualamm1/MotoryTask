@@ -36,6 +36,7 @@ final class PhotoModel: Codable {
 
 final class URLsModel: Codable {
     var full: String?
+    var regular: String?
 }
 
 final class UserModel: Codable {

@@ -65,7 +65,7 @@ class PhotoThumbCVCell: UICollectionViewCell {
 
         // Load image asynchronously with Kingfisher
         viewModel.model
-            .map { $0.urls?.full ?? "" }
+            .map { $0.urls?.regular ?? "" }
             .subscribe(onNext: { [weak self] urlString in
                 guard let self = self, let url = URL(string: urlString) else { return }
 
